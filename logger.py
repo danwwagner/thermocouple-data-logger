@@ -6,11 +6,15 @@ import board
 import busio
 import adafruit_mcp9600
 import codecs
+import time
 
+LOG_INTERVAL = 60
+FILENAME = 'thermocouple-data.csv'
 i2c = busio.I2C(board.SCL, board.SDA, frequency=10000)
 mcp = adafruit_mcp9600.MCP9600(i2c)
 
-
-logfile = codecs.open('thermocouple-data.csv', 'a', 'utf-8')
-logfile.write(repr(mcp.temperature) + '\n')
-logfile.close()
+while True:
+  logfile = codecs.open(FILENAME, 'a', 'utf-8')
+  logfile.write(repr(mcp.temperature) + '\n')
+  logfile.close()
+  time.sleep(LOG_INTERVAL)
