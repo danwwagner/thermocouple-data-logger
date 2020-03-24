@@ -13,6 +13,12 @@ FILENAME = 'thermocouple-data.csv'
 i2c = busio.I2C(board.SCL, board.SDA, frequency=10000)
 mcp = adafruit_mcp9600.MCP9600(i2c)
 
+# Start the session with a newline demarkation
+logfile = codecs.open(FILENAME, 'a', 'utf-8')
+logfile.write('\n')
+logfile.close()
+
+# Record temperature on the hot end of the thermocouple every LOG_INTERVAL
 while True:
   logfile = codecs.open(FILENAME, 'a', 'utf-8')
   logfile.write(repr(mcp.temperature) + '\n')
