@@ -9,5 +9,5 @@ Research code for Agronomy thermocouple data logging mechanism, Spring 2020.
 5. Enable I2C interfacing via the raspi-config utility.
 6. Install the MCP9600 library: `pip3 install adafruit-circuitpython-mcp9600`. 
 7. Clone this repository.
-8. Modify /etc/profile by adding a line to the bottom: `python3 /path-to-repo/thermocouple-data-logger/logger.py &`.
+8. Install the thermocouple.service via systemd in `/etc/systemd/system/`.
 9. Enable console autologin via the raspi-config utility.

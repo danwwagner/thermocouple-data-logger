@@ -1,0 +1,13 @@
+[Unit]
+Description=Thermocouple datalogger service
+After=syslog.target
+Wants=local-fs.target
+
+[Service]
+Type=oneshot
+User=pi
+WorkingDirectory=/home/pi/thermocouple-data-logger
+ExecStart=/usr/bin/python3.7 logger.py
+
+[Install]
+WantedBy=multi-user.target
