@@ -20,7 +20,7 @@ logfile.close()
 
 # Record temperature on the hot end of the thermocouple every LOG_INTERVAL
 while True:
-  logfile = codecs.open(FILENAME, 'a', 'utf-8')
-  logfile.write(repr(mcp.temperature) + '\n')
-  logfile.close()
-  time.sleep(LOG_INTERVAL)
+	logfile = codecs.open(FILENAME, 'a', 'utf-8')
+	logfile.write(repr(mcp.temperature) + '\n')
+	logfile.close()
+	time.sleep(LOG_INTERVAL)
